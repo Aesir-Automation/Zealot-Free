@@ -71,7 +71,7 @@ namespace AimsharpWow.Modules
         {
             if (DebugMode)
             {
-                string path = Directory.GetCurrentDirectory() + "\\Rotations\\Zealot Free - Holy Priest\\";
+                string path = Directory.GetCurrentDirectory() + "\\Rotations\\JarlBrak_Zealot Free - Holy Priest\\";
                 VerifyDir(path);
                 string fileName = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + "_ZealotLogs.txt";
                 try
