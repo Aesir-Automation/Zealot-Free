@@ -1547,13 +1547,13 @@ namespace AimsharpWow.Modules
                     if (Aimsharp.CanUseTrinket(0) && !Moving)
                     {
                         Aimsharp.Cast("TopTrinket", true);
-                        Aimsharp.PrintMessage("CD - Top Trinket used (ST MODE)", Cooldown);
+                        Aimsharp.PrintMessage("CD - Top Trinket used", Cooldown);
                         return true;
                     }
                     if (Aimsharp.CanUseTrinket(1) && !Moving)
                     {
                         Aimsharp.Cast("BottomTrinket", true);
-                        Aimsharp.PrintMessage("CD - Bottom Trinket used (ST MODE)", Cooldown);
+                        Aimsharp.PrintMessage("CD - Bottom Trinket used", Cooldown);
                         return true;
                     }
                     if (GuardianSpiritCD(20)) return true;
@@ -1596,7 +1596,7 @@ namespace AimsharpWow.Modules
         public override void Initialize()
         {
             Aimsharp.PrintMessage("-----------------------------------------------------------------------------------------------------------------", Color.White);
-            Aimsharp.PrintMessage("Welcome to Zealot Free Edition 2.0 - A Priest rotation by JarlBrak", Color.White);
+            Aimsharp.PrintMessage("Welcome to Zealot Free Edition 2.0.1 - A Priest rotation by JarlBrak", Color.White);
             Aimsharp.PrintMessage("-----------------------------------------------------------------------------------------------------------------", Color.White);
             Aimsharp.PrintMessage("Please refer to the Discord server for setup info as well", Color.White);
             Aimsharp.PrintMessage("as open issues/bugs!", Color.White);
@@ -1722,9 +1722,10 @@ namespace AimsharpWow.Modules
             HasBuffBoon = Aimsharp.HasBuff(BoonoftheAscended_SpellName(), "player", true);
             InCombat = true;
 
+            GetTalents();
             if (Mounted || Channeling) return false;
-            if (Moving && Talents[2] == 3) if (AngelicFeatherSelf()) return true;
-            if (Moving && Talents[2] == 2) if (BodyandSoulSelf()) return true;
+            if (Moving && MovementBoost && Talents[2] == 3) if (AngelicFeatherSelf()) return true;
+            if (Moving && MovementBoost && Talents[2] == 2) if (BodyandSoulSelf()) return true;
             if (SingleTargetModeRotation()) return true;
             return true;
         }
